@@ -54,7 +54,7 @@ export default function ModalCreateProduct({ initialValues, classButton, content
     }
     // console.log(formData)
 
-    Axios.post('http://localhost:9696/api/v1/product', formData , {
+    Axios.post('https://coffeepha.ml/api/v1/product', formData , {
       headers: {
         'Content-Type': 'multipart/form-data'
       }

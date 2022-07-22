@@ -18,7 +18,7 @@ export const useCheckToken = () => {
         {
        
             Axios({
-              url: 'http://localhost:9696/api/v1/users/decode',
+              url: 'https://coffeepha.ml/api/v1/users/decode',
               method: 'POST',
               data: {token: _token }
         

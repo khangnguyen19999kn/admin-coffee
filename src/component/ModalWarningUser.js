@@ -8,7 +8,7 @@ export default function ModalWarningUSer({ user, index,getListProduct}) {
 
   const deleteProduct = ()=>{
     let promise = Axios({
-      url: `http://localhost:9696/api/v1/users/${user.id}`,
+      url: `https://coffeepha.ml/api/v1/users/${user.id}`,
       method: 'DELETE'
       
 

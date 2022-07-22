@@ -41,7 +41,7 @@ const filterData = () => {
 
   useEffect(() => {
     let promise = Axios({
-      url: 'http://localhost:9696/api/v1/cart',
+      url: 'https://coffeepha.ml/api/v1/cart',
 
       method: 'GET',
 
@@ -65,7 +65,7 @@ const filterData = () => {
 //   }
 const getDataDetailOrder =(id)=>{
   let promise = Axios({
-    url: `http://localhost:9696/api/v1/cart/detail/${id}`,
+    url: `https://coffeepha.ml/api/v1/cart/detail/${id}`,
 
     method: 'GET',
     

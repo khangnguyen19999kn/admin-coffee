@@ -40,7 +40,7 @@ export default function ModalCreateUser ({ initialValues,classButton,contentButt
         console.log(data)
          
           let promise = Axios({
-          url:tittle==="Thêm User"? 'http://localhost:9696/api/v1/users/register':`http://localhost:9696/api/v1/users/${id}`,
+          url:tittle==="Thêm User"? 'https://coffeepha.ml/api/v1/users/register':`https://coffeepha.ml/api/v1/users/${id}`,
     
           method: tittle==="Thêm User"?'POST':'PUT',
           data: {...data}

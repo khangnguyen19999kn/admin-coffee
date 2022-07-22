@@ -36,7 +36,7 @@ const filterData = () => {
 
   useEffect(() => {
     let promise = Axios({
-      url: 'http://localhost:9696/api/v1/product',
+      url: 'https://coffeepha.ml/api/v1/product',
 
       method: 'GET',
 
