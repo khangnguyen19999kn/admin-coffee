@@ -8,7 +8,7 @@ export default function ModalWarning({ item, index}) {
 
   const deleteProduct = ()=>{
     let promise = Axios({
-      url: `https://coffeepha.ml/api/v1/product/${item.id}`,
+      url: `https://api-coffee-phen.herokuapp.com/api/v1/product/${item.id}`,
       method: 'DELETE'
       
 

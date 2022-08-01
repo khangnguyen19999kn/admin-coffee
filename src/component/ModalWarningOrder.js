@@ -8,7 +8,7 @@ export default function ModalWarningOrder({ order, index,content}) {
 
   const confirmOrder = ()=>{
     let promise = Axios({
-      url: `https://coffeepha.ml/api/v1/cart/${order.id}`,
+      url: `https://api-coffee-phen.herokuapp.com/api/v1/cart/${order.id}`,
   
       method: 'PUT',
   
@@ -28,7 +28,7 @@ export default function ModalWarningOrder({ order, index,content}) {
   }
   const deleteOrder = ()=>{
     let promise = Axios({
-      url: `https://coffeepha.ml/api/v1/cart/${order.id}`,
+      url: `https://api-coffee-phen.herokuapp.com/api/v1/cart/${order.id}`,
   
       method: 'DELETE',
   

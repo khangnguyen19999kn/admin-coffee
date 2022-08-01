@@ -2,30 +2,21 @@ import React,{useState} from 'react'
 import { MenuContext } from '../context/_Context/MenuContext';
 import { NavLink } from 'react-router-dom'
 import { Portal } from '@mui/material';
-import { useNavigate } from "react-router-dom";
+
 import { useCookies } from 'react-cookie';
 
 
 export default function MenuColapse() {
     const [visible2, setVisible2] = useState(0);
-    let navigate = useNavigate();
-    const [cookies,setCookie,removeCookie] = useCookies(['token']);
-    const logOut = ()=>{
-        removeCookie("token");
-        navigate('/login', { replace: true });
-        
-      }
 
-  const hadleArrow = (id)=>{
-    setVisible2=(visible2) =>{
-      visible2=id
-    }
-        
-  }
+    const [cookies,setCookie,removeCookie] = useCookies(['token']);
+  
+
+
   return (
     <div>
     <MenuContext.Consumer>
-    {({ visible }) =>
+    {({ visible,userName,logOut }) =>
     <div className={visible===true?"sidebar close":"sidebar"}>
       <div className="logo-details">
         <i class='bx bx-coffee'></i>
@@ -148,13 +139,14 @@ export default function MenuColapse() {
             <i className="bx bx-history"></i>
             <span className="link_name">Đơn hàng</span>
           </NavLink>
-          <ul className="sub-menu blank">
-            <li>
-              <a className="link_name" href="#">
-                History
-              </a>
-            </li>
-          </ul>
+      
+        </li>
+        <li>
+          <NavLink to='/manage-news'>
+            <i class='bx bxs-news' ></i>
+            <span className="link_name">Tin tức</span>
+          </NavLink>
+  
         </li>
         <li>
           <a href="#">
@@ -173,8 +165,8 @@ export default function MenuColapse() {
           <div className="profile-details">
             <div className="profile-content"></div>
             <div className="name-job">
-              <div className="profile_name">Khánh Nguyên</div>
-              <div className="job"> Desginer</div>
+              <div className="job"> Xin chào </div>
+              <div className="profile_name">{userName}</div>
             </div>
             <i onClick={()=>{logOut()}} className="bx bx-log-out"></i>
           </div>

@@ -14,35 +14,7 @@ export const useCheckToken = () => {
         const { token: _token } = cookies;
         if (!_token) {
             navigate('/login', { replace: true });
-        }else 
-        {
-       
-            Axios({
-              url: 'https://coffeepha.ml/api/v1/users/decode',
-              method: 'POST',
-              data: {token: _token }
-        
-        
-            }).catch((err) => {
-                // const {status} = err.response;
-                // if(status===500){
-                // }
-                navigate('/login', { replace: true });
-                removeCookie("token");
-              
-        
-        
-            }).then((res) => {
-                const {name,level,phoneNumber,exp_token} = res.data
-                // console.log(exp_token)
-        
-
-        
-        
-            });
-    
         }
-    
 
-    }, [])
+    }, [cookies])
 }

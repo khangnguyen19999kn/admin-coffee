@@ -4,6 +4,7 @@ import Axios from 'axios'
 // import { NavLink } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { useCookies } from 'react-cookie';
+import Swal from 'sweetalert2'
 
 export default function Login() {
     let navigate = useNavigate();
@@ -12,14 +13,14 @@ export default function Login() {
         defaultValues: {
             phoneNumber: "",
             password: "",
-            level:"Client"
+            level:"Admin"
        
         }
       });
       const onSubmit = (data) => {
         //   console.log(data);
           let promise = Axios({
-            url: 'https://coffeepha.ml/api/v1/users/login',
+            url: 'https://api-coffee-phen.herokuapp.com/api/v1/users/login',
       
             method: 'POST',
             data:{...data}
@@ -28,6 +29,12 @@ export default function Login() {
           promise.catch((err) => {
             console.log(err.response.data);
             // console.log('Đăng nhập thất bại')
+            Swal.fire({
+                icon: 'error',
+                title: 'Lỗi đăng nhập',
+                text: 'Bạn đã nhập sai tài khoản hoặc mật khẩu vui lòng nhập lại',
+                
+              })
           })
           promise.then((result) => {
             setCookie('token', result.data.token, { path: '/' });
